@@ -70,6 +70,10 @@ h6 {
   font-weight: normal;
   font-style: normal;
 }
+/* 
+* {
+  outline: 1px solid black;
+} */
 
 :root {
   --color-brown: #a2580f;
@@ -80,6 +84,7 @@ h6 {
   --color-forest: #223127;
   --font-fallback: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --intro-img-size: clamp(100px, 20vw, 150px);
 }
 
 body {
@@ -96,14 +101,14 @@ nav {
 }
 
 button {
-  padding: 0 2rem;
+  padding: 0 clamp(0.5rem, 2vw, 2rem);
 }
 
 nav > button {
-  color: var(--color-cream);
   background-color: transparent;
   border: none;
-  font-size: 2rem;
+  color: var(--color-cream);
+  font-size: clamp(1rem, 4vw, 2rem);
 }
 
 nav > button.active {
@@ -111,38 +116,66 @@ nav > button.active {
 }
 
 nav > button:hover {
-  color: var(--color-chocolate);
   background-color: var(--color-cream);
+  color: var(--color-chocolate);
 }
 
 #content {
   background-color: var(--color-cream);
+  color: var(--color-chocolate);
   padding: 2rem 10%;
 }
 
-.restaurant-name {
-  color: var(--color-chocolate);
-  font-size: 4rem;
-  line-height: 4rem;
+.heading {
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  line-height: clamp(2.5rem, 8vw, 4rem);
+  margin-bottom: clamp(2.5rem, 8vw, 4rem);
 }
 
-.intro {
-  margin: 2.5rem 0;
+.subheading {
+  font-size: clamp(1.5rem, 6vw, 3rem);
+  line-height: clamp(1.5rem, 6vw, 3rem);
+  text-align: center;
+  margin: 1rem 0;
 }
 
-.intro-img {
+section {
+  margin: 1rem 0;
+}
+
+.intro-section {
+  display: flex;
+}
+
+.intro-img-container {
+  flex-shrink: 0;
+  margin-right: clamp(1rem, 4vw, 2rem);
   position: relative;
-  max-width: fit-content;
 }
 
 .intro-img-portrait {
-  height: 86%;
-  position: absolute;
-  bottom: 7%;
   left: 50%;
+  position: absolute;
+  top: calc(var(--intro-img-size) * 0.07);
   transform: translateX(-50%);
+  width: 86%;
 }
 
 .intro-img-bg {
-  width: 150px;
+  aspect-ratio: 1;
+  width: var(--intro-img-size);
+}
+
+.intro-text-container {
+  font-size: clamp(1.25rem, 4vw, 2rem);
+  vertical-align: top;
+}
+
+.hours-container {
+  list-style-type: none;
+  font-size: clamp(1rem, 3vw, 1.75rem);
+}
+
+.feature-img {
+  border: 5px solid var(--color-caramel);
 }
