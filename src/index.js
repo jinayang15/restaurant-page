@@ -35,7 +35,6 @@ function main() {
   const content = document.querySelector("#content");
   const home = document.querySelector(".home-button");
   const menu = document.querySelector(".menu-button");
-  const contactUs = document.querySelector(".contact-us-button");
 
   clear(content);
   home.classList.add("active");
