@@ -1,19 +1,6 @@
 import GusHappy from "./images/gus_happy.png";
-import PortraitBG from "./images/portrait_box.png";
+import PortraitBox from "./images/portrait_box.png";
 import StardropSaloon from "./images/stardrop_saloon.jpeg";
-
-export default function generateHomepage() {
-  const heading = document.createElement("h2");
-  const introSection = generateIntroSection();
-  const featureSection = generateFeatureSection();
-
-  heading.classList.add("restaurant");
-  heading.classList.add("heading");
-
-  heading.textContent = "The Stardrop Saloon";
-
-  return [heading, introSection, featureSection];
-}
 
 function generateIntroSection() {
   const introSection = document.createElement("section");
@@ -27,17 +14,17 @@ function generateIntroSection() {
   const introText2 = document.createElement("p");
 
   introSection.classList.add("intro-section");
-  introImgContainer.classList.add("intro-img-container");
+  introImgContainer.classList.add("intro", "img-container");
   introTextContainer.classList.add("intro-text-container");
 
-  introImgBG.classList.add("intro-img-bg");
-  introImgBG.setAttribute("src", PortraitBG);
-  introImgPortrait.classList.add("intro-img-portrait");
+  introImgBG.classList.add("intro", "img-bg");
+  introImgBG.setAttribute("src", PortraitBox);
+  introImgPortrait.classList.add("intro", "img-portrait");
   introImgPortrait.setAttribute("src", GusHappy);
   introImgPortrait.setAttribute("alt", "Happy Gus the Saloon Owner");
 
-  introText1.classList.add("intro-text");
-  introText2.classList.add("intro-text");
+  introText1.classList.add("intro", "text");
+  introText2.classList.add("intro", "text");
   introText1.textContent = "“Hungry? Thirsty? I've got just the thing!”";
   introText2.textContent = "- Gus";
 
@@ -85,4 +72,17 @@ function generateFeatureSection() {
   featureSection.appendChild(featureHeading3);
 
   return featureSection;
+}
+
+export default function generateHomePage() {
+  const heading = document.createElement("h2");
+  const introSection = generateIntroSection();
+  const featureSection = generateFeatureSection();
+
+  heading.classList.add("restaurant");
+  heading.classList.add("heading");
+
+  heading.textContent = "The Stardrop Saloon";
+
+  return [heading, introSection, featureSection];
 }

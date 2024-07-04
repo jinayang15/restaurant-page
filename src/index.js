@@ -1,8 +1,18 @@
 import "./styles.css";
-import generateHomepage from "./home";
+import generateHomePage from "./home";
+import generateMenuPage from "./menu";
 
 function clear(element) {
   element.textContent = "";
+}
+
+function clearActive() {
+  const active = document.querySelectorAll(".active");
+  if (active) {
+    active.forEach((element) => {
+      element.classList.remove("active");
+    });
+  }
 }
 
 function appendChildrenToContent(content, iterable) {
@@ -11,24 +21,39 @@ function appendChildrenToContent(content, iterable) {
   }
 }
 
-function buildHomepage(content) {
+function buildHomePage(content) {
   clear(content);
-  appendChildrenToContent(content, generateHomepage());
+  appendChildrenToContent(content, generateHomePage());
+}
+
+function buildMenuPage(content) {
+  clear(content);
+  appendChildrenToContent(content, generateMenuPage());
 }
 
 function main() {
   const content = document.querySelector("#content");
-  const home = document.querySelector(".home");
-  const menu = document.querySelector(".menu");
-  const contactUs = document.querySelector(".contact-us");
+  const home = document.querySelector(".home-button");
+  const menu = document.querySelector(".menu-button");
+  const contactUs = document.querySelector(".contact-us-button");
 
+  clear(content);
   home.classList.add("active");
-  buildHomepage(content);
+  buildHomePage(content);
 
   home.addEventListener("click", () => {
+    clearActive();
     if (!home.classList.contains("active")) {
       home.classList.add("active");
-      buildHomepage(content);
+      buildHomePage(content);
+    }
+  });
+
+  menu.addEventListener("click", () => {
+    clearActive();
+    if (!menu.classList.contains("active")) {
+      menu.classList.add("active");
+      buildMenuPage(content);
     }
   });
 }
